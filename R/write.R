@@ -64,16 +64,16 @@ make_meta <- function(tensors, metadata) {
     names = names(tensors)
   )
 
+  if (!is.null(metadata)) {
+    meta_[["__metadata__"]] <- validate_metadata(metadata)
+  }
+
   pos <- 0L
   for (nm in names(tensors)) {
     meta <- tensor_meta(tensors[[nm]])
     meta$data_offsets <- c(pos, pos + size_from_meta(meta))
     pos <- meta$data_offsets[2]
     meta_[[nm]] <- meta
-  }
-
-  if (!is.null(metadata)) {
-    meta_[["__metadata__"]] <- metadata
   }
 
   meta_
@@ -84,7 +84,7 @@ tensor_buffer <- function(x) {
 }
 
 tensor_buffer.torch_tensor <- function(x) {
-  torch::buffer_from_torch_tensor(x)
+  torch::buffer_from_torch_tensor(x$cpu())
 }
 
 tensor_meta <- function(x) {
@@ -93,7 +93,7 @@ tensor_meta <- function(x) {
 
 tensor_meta.torch_tensor <- function(x) {
   list(
-    shape = x$shape,
+    shape = as.list(x$shape), # we must store as a list to avoid simplification
     dtype = torch_dtype_to_safe(x$dtype)
   )
 }
@@ -123,7 +123,7 @@ torch_dtype_to_safe <- function(x) {
 }
 
 size_from_meta <- function(meta) {
-  numel <- prod(meta$shape)
+  numel <- prod(as.numeric(meta$shape))
 
   el_size <- if (meta$dtype == "F32") {
     4L
@@ -148,4 +148,14 @@ size_from_meta <- function(meta) {
   }
 
   as.integer(numel*el_size)
+}
+
+validate_metadata <- function(x) {
+  if (!rlang::is_list(x)) cli::cli_abort("{.arg metadata} must be a list.")
+  if (!rlang::is_named(x)) cli::cli_abort("{.arg metadata} must be a named list.")
+  lapply(x, function(item) {
+    if (!rlang::is_scalar_character(item))
+      cli::cli_abort("{.arg metadata} must be a named list of scalar characters.")
+  })
+  x
 }
