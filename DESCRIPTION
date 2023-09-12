@@ -1,6 +1,6 @@
 Package: safetensors
 Title: Safetensors File Format
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: c(
     person("Daniel", "Falbel", , "daniel@posit.co", role = c("aut", "cre")),
     person(family = "Posit", role = c("cph"))
@@ -19,9 +19,9 @@ URL: https://github.com/mlverse/safetensors,
         https://mlverse.github.io/safetensors/
 BugReports: https://github.com/mlverse/safetensors/issues
 NeedsCompilation: no
-Packaged: 2023-07-10 09:50:52 UTC; dfalbel
+Packaged: 2023-09-12 12:59:04 UTC; dfalbel
 Author: Daniel Falbel [aut, cre],
   Posit [cph]
 Maintainer: Daniel Falbel <daniel@posit.co>
 Repository: CRAN
-Date/Publication: 2023-07-10 20:10:04 UTC
+Date/Publication: 2023-09-12 19:00:02 UTC
