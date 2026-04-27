@@ -1,12 +1,12 @@
-7a98c62a9d5703030b6ec3bbfd8dc44d *DESCRIPTION
+86212ae1d721f7c278ff2ed5569dc372 *DESCRIPTION
 cd2018a6151258db25c5d39ee2d2ec47 *LICENSE
 53c42ccc6e3569b2493ff80d32c2d59b *NAMESPACE
-f803c58f3ec3600096a71a639af67bb8 *NEWS.md
+98db59410ead73d1cab155468ae40b18 *NEWS.md
 98df09f623269b2d0ca63c43c764181b *R/safetensors.R
 374a49dee2c40d73ed7c22e030b957d7 *R/torch.R
 4755864a1b682b46ff1a0a87cd5fdbac *R/write.R
 692bc00e62070315df8a8bd58fe03b23 *R/zzz.R
-90b7ac893db1c440668e4749b960f883 *README.md
+e18e34dc54ca1ad96719634ba5c607b3 *README.md
 a90e8bf070a46d0ad5376ddbefcc4042 *man/safe_load_file.Rd
 0ef895b63e6d4223edd93d698592b5ec *man/safe_save_file.Rd
 7743c1de69a56a2b8e40cb19fdca98f8 *man/safe_tensor_buffer.Rd
@@ -16,6 +16,5 @@ ef23f269f057871caf21c7bdb70fb6aa *man/safe_tensor_meta.Rd
 16c4874cbd0a268cd2b61bcabe34e19f *tests/testthat.R
 c1393f019d0ef74086f89594a79882f1 *tests/testthat/_snaps/write.md
 eeb881cd7a2b4244b8e3e0f5e65e04b8 *tests/testthat/safetensors/hello.safetensors
-4cdff11dc63abb50923769bb4602349a *tests/testthat/safetensors/hello2.safetensors
 5098915543556e707b74b01a79890a19 *tests/testthat/test-safetensors.R
 57664b563804d4b3b8c5203511e5d2e7 *tests/testthat/test-write.R

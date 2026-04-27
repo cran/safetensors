@@ -1,3 +1,7 @@
+# safetensors 0.2.1
+
+* Changed maintainer to Tomasz Kalinowski.
+
 # safetensors 0.2.0
 
 * Refactored the package so other packages can extend it.
